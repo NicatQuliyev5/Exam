@@ -1,0 +1,32 @@
+.card {
+    height: 700px;
+    text-align: center;
+    background-color: #e6e6e6;
+    margin-bottom: 50px;
+
+
+
+    .cardImg {
+        width: 100%;
+        height: 200px;
+        position: relative;
+
+        img {
+            width: 50%;
+            position: absolute;
+            left: -100px;
+            top: 50px;
+        }
+    }
+
+    .cardBody {
+        h3 {
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        span {
+            color: gray;
+        }
+    }
+}
