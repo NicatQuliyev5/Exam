@@ -5,6 +5,7 @@ import { Grid } from '@mui/material'
 import styles from './index.module.scss';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function Detail() {
     const [wine, setWine] = useState({})
@@ -17,6 +18,11 @@ function Detail() {
 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Detail Page</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="container">
                 {wine &&
                     <>

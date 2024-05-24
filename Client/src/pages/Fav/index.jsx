@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { useFormik } from 'formik';
-import TextField from '@mui/material/TextField';
-import { deleteOne, getAll, post } from '../../services';
+import React from 'react'
 import { Button } from '@mui/material';
 import styles from "./index.module.scss"
 import { Table } from 'antd';
 import { useContext } from 'react';
 import { FavContext } from '../../context/FavContext';
+import { Helmet } from 'react-helmet';
 
 function Fav() {
   const { fav, setFav, localFav, setLocalFav } = useContext(FavContext)
+  console.log(fav)
   const columns = [
     {
       title: 'Image',
@@ -31,7 +30,8 @@ function Fav() {
       render: (record) => {
         return (
           <Button variant="contained" type="submit" color='error' onClick={() => {
-            
+            setFav([])
+            setLocalFav([])
           }}>Delete</Button>
         )
       }
@@ -39,10 +39,17 @@ function Fav() {
   ];
   return (
     <div className="container">
-      <Table
-        columns={columns}
-        dataSource={fav}
-      />
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Favorite Page</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
+      <div className={styles.favTable}>
+        <Table
+          columns={columns}
+          dataSource={fav}
+        />
+      </div>
     </div>
   )
 }

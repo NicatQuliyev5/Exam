@@ -5,8 +5,8 @@ import { deleteOne, getAll, post } from '../../services';
 import { Button } from '@mui/material';
 import styles from "./index.module.scss"
 import { Table } from 'antd';
-
-
+import { WineAddSchema } from '../../validations/AddValidation';
+import { Helmet } from 'react-helmet';
 function Add() {
     const [wines, setWines] = useState([])
     useEffect(() => {
@@ -24,8 +24,8 @@ function Add() {
         onSubmit: async (values, { resetForm }) => {
             await post(values)
             resetForm()
-           
         },
+        validationSchema: WineAddSchema
     });
 
     const columns = [
@@ -56,9 +56,15 @@ function Add() {
                 )
             }
         },
+
     ];
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Add Page</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="container">
                 <form onSubmit={formik.handleSubmit}>
                     <TextField

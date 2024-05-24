@@ -10,7 +10,7 @@ function App() {
   }, [])
 
   const [fav, setFav] = useState([])
-  const [localFav, setLocalFav] = useLocalStorage([])
+  const [localFav, setLocalFav] = useLocalStorage("wishlist", [])
 
   const router = createBrowserRouter(ROUTES)
 

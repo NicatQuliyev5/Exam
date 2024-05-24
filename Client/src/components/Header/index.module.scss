@@ -1,4 +1,11 @@
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 1000;
+    background-color: white;
     .header{
         text-align: center;
         padding: 30px;
